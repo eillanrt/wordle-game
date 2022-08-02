@@ -1,0 +1,69 @@
+#keyboard {
+  width: 450px;
+  height: 180px;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto;
+}
+
+#keyboard > div {
+  width: 100%;
+  display: flex;
+}
+
+#keyboard-top {
+  justify-content: space-between;
+}
+
+#keyboard-top .key {
+  width: 8%;
+}
+
+#keyboard-middle {
+  justify-content: space-around;
+}
+
+#keyboard-middle .key {
+  width: 9%;
+}
+
+#keyboard-bottom {
+  justify-content: space-around;
+}
+
+#keyboard-bottom .key {
+  width: 9%;
+}
+
+#enter {
+  width: 14% !important;
+}
+
+.key {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  display: block;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 1.3rem;
+  border: none;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 475px) {
+  #keyboard {
+    width: 95%;
+  }
+  .key {
+    font-size: 1rem;
+  }
+  #keyboard-top .key {
+    width: 9%;
+  }
+  #keyboard-middle .key {
+    width: 10%;
+  }
+}

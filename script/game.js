@@ -19,13 +19,13 @@ $(document).ready(() => {
   function getRandomWord() {
     gameActive = false;
 
-    $.ajax("../assets/answers.txt").done((answers) => {
+    $.ajax("https://raw.githubusercontent.com/eillanrt/wordle-game/main/assets/answers.txt").done((answers) => {
       const lines = answers.split("\n").map((line) => line.trim());
       word = rando(lines).value;
     });
 
     if (wordsList === null) {
-      $.ajax("../assets/words.txt").done((words) => {
+      $.ajax("https://raw.githubusercontent.com/eillanrt/wordle-game/main/assets/words.txt").done((words) => {
         wordsList = words.split("\n").map((line) => line.trim());
       });
     }

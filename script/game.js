@@ -172,13 +172,9 @@ $(document).ready(() => {
 
   function handleKeyDown(event) {
     if (!gameActive || word === "") return;
-
-    if (event.code.startsWith("Key")) {
-      writeLetter(event.key);
-    } else if (event.code === "Backspace") {
-      backspace();
-    } else if (event.code === "Enter") {
-      enter();
-    }
+    
+    if (event.code === "Enter") enter();
+    else if (event.code === "Backspace") backspace();
+    else writeLetter(event.key);
   }
 });

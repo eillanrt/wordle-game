@@ -1,5 +1,6 @@
 import { getAdjacent, occurenceOf, delay } from "./helpers.js";
 import confetti from "./confetti.js";
+import chooseRandom from "./random.js";
 
 $(document).ready(() => {
   let currentRow = 1;
@@ -23,7 +24,7 @@ $(document).ready(() => {
     if (answers === null) {
       $.ajax("https://raw.githubusercontent.com/eillanrt/wordle-game/main/assets/answers.txt").done((res) => {
         answers = res.split("\n").map((line) => line.trim());
-        word = rando(answers).value;
+        word = chooseRandom(answers);
       });
     } else {
       word = rando(answers).value;

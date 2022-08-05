@@ -27,7 +27,7 @@ $(document).ready(() => {
         word = chooseRandom(answers);
       });
     } else {
-      word = rando(answers).value;
+      word = chooseRandom(answers);
     }
 
     if (wordsList === null) {

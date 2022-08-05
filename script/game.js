@@ -9,6 +9,7 @@ $(document).ready(() => {
   let wordInput = "";
   let word = "";
   let wordsList = null;
+  let answers = null;
   const green = "rgb(90,230,118)";
   const yellow = "rgb(254,254,51)";
   const gray = "rgb(172,172,172)";
@@ -18,11 +19,15 @@ $(document).ready(() => {
 
   function getRandomWord() {
     gameActive = false;
-
-    $.ajax("https://raw.githubusercontent.com/eillanrt/wordle-game/main/assets/answers.txt").done((answers) => {
-      const lines = answers.split("\n").map((line) => line.trim());
-      word = rando(lines).value;
-    });
+    
+    if (answers === null) {
+      $.ajax("https://raw.githubusercontent.com/eillanrt/wordle-game/main/assets/answers.txt").done((res) => {
+        answers = res.split("\n").map((line) => line.trim());
+        word = rando(answers).value;
+      });
+    } else {
+      word = rando(answers).value;
+    }
 
     if (wordsList === null) {
       $.ajax("https://raw.githubusercontent.com/eillanrt/wordle-game/main/assets/words.txt").done((words) => {

@@ -18,6 +18,11 @@ $(document).ready(() => {
   getRandomWord();
   showMessage("Guess the first word", 1000);
 
+  $.ajax("https://raw.githubusercontent.com/eillanrt/wordle-game/main/assets/words.txt")
+   .done((words) => {
+      wordsList = words.split("\n").map((line) => line.trim());
+  });
+
   function getRandomWord() {
     gameActive = false;
     
@@ -28,12 +33,6 @@ $(document).ready(() => {
       });
     } else {
       word = chooseRandom(answers);
-    }
-
-    if (wordsList === null) {
-      $.ajax("https://raw.githubusercontent.com/eillanrt/wordle-game/main/assets/words.txt").done((words) => {
-        wordsList = words.split("\n").map((line) => line.trim());
-      });
     }
 
     gameActive = true;

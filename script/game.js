@@ -167,7 +167,9 @@ $(document).ready(() => {
 
   // event handlers
   function handleKeyClick(event) {
-    if (!gameActive || word === "") return;
+    const gameIsReady = (gameActive && (word !== "") && (wordsList !== null));
+    if (!gameIsReady) return;
+
     const { id } = event.target;
 
     if (id === "enter") enter();
@@ -176,7 +178,8 @@ $(document).ready(() => {
   }
 
   function handleKeyDown(event) {
-    if (!gameActive || word === "") return;
+    const gameIsReady = (gameActive && (word !== "") && (wordsList !== null));
+    if (!gameIsReady) return;
     
     if (event.code === "Enter") enter();
     else if (event.code === "Backspace") backspace();

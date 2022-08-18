@@ -20,12 +20,12 @@ $(document).ready(() => {
 
   $.ajax("https://raw.githubusercontent.com/eillanrt/wordle-game/main/assets/words.txt")
    .done((words) => {
-      wordsList = words.split("\n").map((line) => line.trim());
+    wordsList = words.split("\n").map((line) => line.trim());
   });
 
   function getRandomWord() {
     gameActive = false;
-    
+
     if (answers === null) {
       $.ajax("https://raw.githubusercontent.com/eillanrt/wordle-game/main/assets/answers.txt").done((res) => {
         answers = res.split("\n").map((line) => line.trim());
@@ -51,7 +51,7 @@ $(document).ready(() => {
     $(`#row${currentRow}`)
       .children()
       .each((i, el) => {
-        $(el).text(wordInput[i]);
+        if (!$(el).text()) $(el).text(wordInput[i]);
       });
   }
 
@@ -141,7 +141,7 @@ $(document).ready(() => {
   async function showMessage(message, duration = 700) {
     gameActive = false;
     $("#message h1").text(message);
-    $("#message").show()
+    $("#message").show();
 
     await delay(duration);
 
@@ -167,7 +167,7 @@ $(document).ready(() => {
 
   // event handlers
   function handleKeyClick(event) {
-    const gameIsReady = (gameActive && (word !== "") && (wordsList !== null));
+    const gameIsReady = gameActive && word !== "" && wordsList !== null;
     if (!gameIsReady) return;
 
     const { id } = event.target;
@@ -178,9 +178,9 @@ $(document).ready(() => {
   }
 
   function handleKeyDown(event) {
-    const gameIsReady = (gameActive && (word !== "") && (wordsList !== null));
+    const gameIsReady = gameActive && word !== "" && wordsList !== null;
     if (!gameIsReady) return;
-    
+
     if (event.code === "Enter") enter();
     else if (event.code === "Backspace") backspace();
     else if (event.code.startsWith("Key")) writeLetter(event.key);

@@ -141,21 +141,21 @@ $(document).ready(() => {
   async function showMessage(message, duration = 700) {
     gameActive = false;
     $("#message h1").text(message);
-    $("#message").css("display", "block");
+    $("#message").show()
 
     await delay(duration);
 
-    $("#message").css("display", "none");
+    $("#message").hide();
     $("#message h1").empty();
     gameActive = true;
   }
 
   function showWord() {
     gameActive = false;
-    $("#modalwin").css("display", "block");
+    $("#modalwin").show();
     $("#modalwin h1").text(word);
     $("#modalwin span").on("click", () => {
-      $("#modalwin").css("display", "none");
+      $("#modalwin").hide();
       playAgain();
     });
 

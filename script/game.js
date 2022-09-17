@@ -51,7 +51,7 @@ $(document).ready(() => {
     $(`#row${currentRow}`)
       .children()
       .each((i, el) => {
-        if (!$(el).text()) $(el).text(wordInput[i]);
+        if ($(el).is(":empty")) $(el).text(wordInput[i]);
       });
   }
 

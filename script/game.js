@@ -83,7 +83,7 @@ $(document).ready(() => {
     gameActive = false;
     for (let i = 0; i < 5; i++) {
       await delay(300);
-      const current = $(`#row${currentRow} div:nth-child(${i + 1})`);
+      const current = $(`#row${currentRow} .item`).eq(i);
 
       if (occurenceOf(wordInput[i], word) > 1) {
         current.append(`<sup>${occurenceOf(wordInput[i], word)}</sup>`);

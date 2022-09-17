@@ -64,7 +64,7 @@ $(document).ready(() => {
     wordInput = wordInput.slice(0, -1);
 
     const lastLetter = wordInput.length;
-    $($(`#row${currentRow}`).children()[lastLetter]).empty();
+    $(`#row${currentRow} .item`).eq(lastLetter).empty();
   }
 
   async function enter() {

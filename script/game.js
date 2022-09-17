@@ -56,7 +56,7 @@ $(document).ready(() => {
   }
 
   function backspace() {
-    if (currentItem === 1 && $(`#row${currentRow} .item`).first().text() === "")
+    if (currentItem === 1 && $(`#row${currentRow} .item`).first().is(":empty"))
       return;
 
     if (currentItem !== 1) currentItem--;

@@ -120,8 +120,7 @@ $(document).ready(() => {
 
   function playAgain() {
     getRandomWord();
-    $(".item").empty();
-    $(".item").css("background-color", "transparent");
+    $(".item").empty().css("background-color", "transparent");
     $(".letter").css("background-color", "lightgray");
     $("#modalwin h1").empty();
     currentItem = 1;

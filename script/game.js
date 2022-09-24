@@ -132,7 +132,7 @@ $(document).ready(() => {
   async function confettiEffect() {
     await delay(200);
     confetti.start();
-    await delay(1500);
+    await delay(2000);
     confetti.stop();
   }
 

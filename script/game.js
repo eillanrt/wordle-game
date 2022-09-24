@@ -48,8 +48,7 @@ $(document).ready(() => {
 
     wordInput += letter;
 
-    $(`#row${currentRow}`)
-      .children()
+    $(`#row${currentRow} .item`)
       .each((i, el) => {
         if ($(el).is(":empty")) $(el).text(wordInput[i]);
       });
